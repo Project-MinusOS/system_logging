@@ -1,11 +1,11 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright 2026, The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,11 +14,19 @@
  * limitations under the License.
  */
 
-#pragma once
+#ifndef LIBLOGGER_H
+#define LIBLOGGER_H
 
-#include <stddef.h>
+#include <stdbool.h>
 
-#include <android/log.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-int PmsgWrite(log_id_t logId, const struct timespec* ts, const struct iovec* vec, size_t nr);
-void PmsgClose();
+bool rust_android_logger_init(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // LIBLOGGER_H
